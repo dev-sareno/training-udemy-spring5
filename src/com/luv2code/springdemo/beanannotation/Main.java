@@ -13,6 +13,8 @@ public class Main {
 		Coach theCoach = context.getBean("theCoach", AnnotationPingPongCoach.class);
 		
 		System.out.println(theCoach.getDailyFortune());
+		
+		context.close();
 	}
 
 }
