@@ -1,5 +1,7 @@
 package com.luv2code.springdemo;
 
+import java.util.Random;
+
 public class CricketCoach implements Coach {
 	
 	private FortuneService fortuneService;
@@ -14,7 +16,11 @@ public class CricketCoach implements Coach {
 
 	@Override
 	public String getDailyFortune() {
-		return "Hey! " + this.fortuneService.getFortune();
+		return "Your randome fortune is " + ((new String[] {
+				"Fotune 00",
+				"Fotune 01",
+				"Fotune 02"
+		})[0 + new Random().nextInt(2 - 0) + 1]);
 	}
 
 	public FortuneService getFortuneService() {

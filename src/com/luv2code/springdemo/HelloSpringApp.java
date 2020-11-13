@@ -9,7 +9,7 @@ public class HelloSpringApp {
 
 		CricketCoach cricketCoach = context.getBean("cricketCoach", CricketCoach.class);
 		System.out.println("emailAddress=" + cricketCoach.getEmailAddress());
-		System.out.println("team=" + cricketCoach.getTeam());
+		System.out.println("team=" + cricketCoach.getDailyFortune());
 		
 		context.close();
 	}
