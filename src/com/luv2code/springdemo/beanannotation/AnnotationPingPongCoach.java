@@ -11,13 +11,6 @@ public class AnnotationPingPongCoach implements Coach {
 	
 	private FortuneService fortuneService;
 
-//	@Autowired
-	public AnnotationPingPongCoach(FortuneService fortuneService, FortuneService fortuneService2) {
-		super();
-		this.fortuneService = fortuneService;
-		System.out.println(fortuneService == fortuneService2);
-	}
-
 	@Override
 	public String getDailyWorkout() {
 		// TODO Auto-generated method stub
@@ -33,7 +26,9 @@ public class AnnotationPingPongCoach implements Coach {
 		return fortuneService;
 	}
 
+	@Autowired
 	public void setFortuneService(FortuneService fortuneService) {
+		System.out.println("setFortuneService() called.");
 		this.fortuneService = fortuneService;
 	}
 
