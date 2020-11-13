@@ -33,4 +33,15 @@ public class AnnotationPingPongCoach implements Coach {
 		this.fortuneService = fortuneService;
 	}
 
+	@Autowired
+	public void notASetterMethodWithMultipleParameter2(FortuneService fortuneService) {
+		System.out.println("notASetterMethodWithMultipleParameter2() called.");
+	}
+
+	@Autowired
+	public void notASetterMethodWithMultipleParameter3(FortuneService fortuneService) {
+		System.out.println("notASetterMethodWithMultipleParameter3() called.");
+		this.fortuneService = fortuneService;
+	}
+
 }
