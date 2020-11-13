@@ -10,6 +10,10 @@ import com.luv2code.springdemo.FortuneService;
 public class AnnotationPingPongCoach implements Coach {
 	
 	private FortuneService fortuneService;
+	
+	public AnnotationPingPongCoach() {
+		System.out.println("AnnotationPingPongCoach() constructor called.");
+	}
 
 	@Override
 	public String getDailyWorkout() {
