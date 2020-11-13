@@ -26,13 +26,10 @@ public class AnnotationPingPongCoach implements Coach {
 		return "Your Ping Pong daily fortune is " + this.fortuneService.getFortune();
 	}
 
-	public FortuneService getFortuneService() {
-		return fortuneService;
-	}
-
 	@Autowired
-	public void setFortuneService(FortuneService fortuneService) {
-		System.out.println("setFortuneService() called.");
+	public void notASetterMethodWithMultipleParameter(FortuneService fortuneService, FortuneService fortuneService2) {
+		System.out.println("notASetterMethodWithMultipleParameter() called.");
+		System.out.println("is equal=" + (fortuneService == fortuneService2));
 		this.fortuneService = fortuneService;
 	}
 
