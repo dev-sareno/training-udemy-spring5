@@ -1,19 +1,21 @@
 package com.luv2code.springdemo.beanannotation;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import com.luv2code.springdemo.Coach;
-//import com.luv2code.springdemo.FortuneService;
+import com.luv2code.springdemo.FortuneService;
 
 @Component
 public class AnnotationPingPongCoach implements Coach {
 	
-//	private FortuneService fortuneService;
-//
-//	public AnnotationPingPongCoach(FortuneService fortuneService) {
-//		super();
-//		this.fortuneService = fortuneService;
-//	}
+	private FortuneService fortuneService;
+
+	@Autowired
+	public AnnotationPingPongCoach(FortuneService fortuneService) {
+		super();
+		this.fortuneService = fortuneService;
+	}
 
 	@Override
 	public String getDailyWorkout() {
@@ -23,15 +25,15 @@ public class AnnotationPingPongCoach implements Coach {
 
 	@Override
 	public String getDailyFortune() {
-		return "Ping Pong coach | Using annotation";
+		return "Your Ping Pong daily fortune is " + this.fortuneService.getFortune();
 	}
 
-//	public FortuneService getFortuneService() {
-//		return fortuneService;
-//	}
-//
-//	public void setFortuneService(FortuneService fortuneService) {
-//		this.fortuneService = fortuneService;
-//	}
+	public FortuneService getFortuneService() {
+		return fortuneService;
+	}
+
+	public void setFortuneService(FortuneService fortuneService) {
+		this.fortuneService = fortuneService;
+	}
 
 }
