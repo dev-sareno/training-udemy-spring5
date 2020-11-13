@@ -1,6 +1,7 @@
 package com.luv2code.springdemo.beanannotation;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
 import com.luv2code.springdemo.Coach;
@@ -10,6 +11,7 @@ import com.luv2code.springdemo.FortuneService;
 public class AnnotationPingPongCoach implements Coach {
 	
 	@Autowired
+	@Qualifier("annotationPingPongFortuneService")
 	private FortuneService fortuneService;
 
 	@Override
