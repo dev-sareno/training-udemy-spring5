@@ -5,7 +5,7 @@ import org.springframework.stereotype.Component;
 import com.luv2code.springdemo.Coach;
 //import com.luv2code.springdemo.FortuneService;
 
-@Component("theCoach")
+@Component
 public class AnnotationPingPongCoach implements Coach {
 	
 //	private FortuneService fortuneService;

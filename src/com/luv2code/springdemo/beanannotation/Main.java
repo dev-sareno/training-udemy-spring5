@@ -10,7 +10,7 @@ public class Main {
 		ClassPathXmlApplicationContext context = 
 				new ClassPathXmlApplicationContext("beanAnnotation-applicationContext.xml");
 		
-		Coach theCoach = context.getBean("theCoach", AnnotationPingPongCoach.class);
+		Coach theCoach = context.getBean(AnnotationPingPongCoach.class);
 		
 		System.out.println(theCoach.getDailyFortune());
 		
