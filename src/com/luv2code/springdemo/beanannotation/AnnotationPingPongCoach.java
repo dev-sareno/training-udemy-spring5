@@ -11,7 +11,7 @@ public class AnnotationPingPongCoach implements Coach {
 	
 	private FortuneService fortuneService;
 
-	@Autowired
+//	@Autowired
 	public AnnotationPingPongCoach(FortuneService fortuneService, FortuneService fortuneService2) {
 		super();
 		this.fortuneService = fortuneService;
