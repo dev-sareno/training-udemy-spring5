@@ -9,11 +9,8 @@ import com.luv2code.springdemo.FortuneService;
 @Component
 public class AnnotationPingPongCoach implements Coach {
 	
+	@Autowired
 	private FortuneService fortuneService;
-	
-	public AnnotationPingPongCoach() {
-		System.out.println("AnnotationPingPongCoach() constructor called.");
-	}
 
 	@Override
 	public String getDailyWorkout() {
@@ -24,24 +21,6 @@ public class AnnotationPingPongCoach implements Coach {
 	@Override
 	public String getDailyFortune() {
 		return "Your Ping Pong daily fortune is " + this.fortuneService.getFortune();
-	}
-
-	@Autowired
-	public void notASetterMethodWithMultipleParameter(FortuneService fortuneService, FortuneService fortuneService2) {
-		System.out.println("notASetterMethodWithMultipleParameter() called.");
-		System.out.println("is equal=" + (fortuneService == fortuneService2));
-		this.fortuneService = fortuneService;
-	}
-
-	@Autowired
-	public void notASetterMethodWithMultipleParameter2(FortuneService fortuneService) {
-		System.out.println("notASetterMethodWithMultipleParameter2() called.");
-	}
-
-	@Autowired
-	public void notASetterMethodWithMultipleParameter3(FortuneService fortuneService) {
-		System.out.println("notASetterMethodWithMultipleParameter3() called.");
-		this.fortuneService = fortuneService;
 	}
 
 }
