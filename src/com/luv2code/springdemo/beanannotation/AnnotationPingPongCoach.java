@@ -12,9 +12,10 @@ public class AnnotationPingPongCoach implements Coach {
 	private FortuneService fortuneService;
 
 	@Autowired
-	public AnnotationPingPongCoach(FortuneService fortuneService) {
+	public AnnotationPingPongCoach(FortuneService fortuneService, FortuneService fortuneService2) {
 		super();
 		this.fortuneService = fortuneService;
+		System.out.println(fortuneService == fortuneService2);
 	}
 
 	@Override
