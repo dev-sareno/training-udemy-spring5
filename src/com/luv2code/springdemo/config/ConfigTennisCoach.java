@@ -6,7 +6,6 @@ import org.springframework.stereotype.Component;
 import com.luv2code.springdemo.Coach;
 import com.luv2code.springdemo.FortuneService;
 
-@Component
 public class ConfigTennisCoach implements Coach {
 	
 	@Autowired
