@@ -1,21 +1,21 @@
 package com.luv2code.springdemo;
 
-public class TrackCoach implements Coach {
+public class BasketballCoach implements Coach {
 	
 	private FortuneService fortuneService;
-
-	public TrackCoach(FortuneService fortuneService) {
+	
+	public BasketballCoach(FortuneService fortuneService) {
 		this.fortuneService = fortuneService;
 	}
 
 	@Override
 	public String getDailyWorkout() {
-		return "Run a hard 5k";
+		return "10mins jmping jack";
 	}
 
 	@Override
 	public String getDailyFortune() {
-		return "Just do it! " + this.fortuneService.getFortune();
+		return this.fortuneService.getFortune();
 	}
-
+	
 }

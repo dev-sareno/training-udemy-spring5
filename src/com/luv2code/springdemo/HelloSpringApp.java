@@ -6,12 +6,11 @@ public class HelloSpringApp {
 	
 	public static void main(String[] args) {
 		ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
-		
-		Coach theCoach = context.getBean("myCoach", Coach.class);
-		System.out.println("theCoach=" + theCoach.getDailyWorkout());
-		
 		Coach basketballCoach = context.getBean("basketballCoach", Coach.class);
-		System.out.println("basketballCoach=" + basketballCoach.getDailyWorkout());
+		Coach trackCoach = context.getBean("trackCoach", Coach.class);
+
+		System.out.println("basketballCoach=" + basketballCoach.getDailyFortune());
+		System.out.println("trackCoach=" + trackCoach.getDailyFortune());
 		
 		context.close();
 	}
