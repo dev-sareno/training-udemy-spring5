@@ -11,7 +11,7 @@ import com.luv2code.springdemo.FortuneService;
 public class AnnotationPingPongCoach implements Coach {
 	
 	@Autowired
-	@Qualifier("annotationPingPongFortuneService")
+	@Qualifier("annotationAnotherPingPongFortuneService")
 	private FortuneService fortuneService;
 
 	@Override
