@@ -24,6 +24,10 @@
 		<hr/>
 		
 		<button onclick="window.showJsAlert()">Alert</button>
+		
+		<hr/>
+		
+		<a href="student/showForm">Student | Show form</a>
 	</body>
 
 </html>
