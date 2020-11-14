@@ -1,5 +1,7 @@
 package com.luv2code.hibernate.demo.entity;
 
+import java.util.List;
+
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
@@ -27,9 +29,20 @@ public class Main {
 			
 			System.out.println("New student saved!");
 			
+			
+			// Retrieve
 			Student fromDb = session.get(Student.class, student.getId());
 			
 			System.out.println("From db=" + fromDb.getFirstName() + " " + fromDb.getLastName());
+			
+			
+			// Query
+			List<Student> allStudents = session.createQuery("from Student", Student.class)
+					.getResultList();
+			for (int i = 0; i < allStudents.size(); i++) {
+				Student iStudent = allStudents.get(i);
+				System.out.println("index at " + i + " id=" + iStudent.getId());
+			}
 			
 			session.getTransaction().commit();
 			
