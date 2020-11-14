@@ -15,44 +15,40 @@ public class Main {
 				.addAnnotatedClass(Student.class)
 				.buildSessionFactory();
 		
-		Session session = sessionFactory.getCurrentSession();
+		Session session;
 		
 		try {
 			
-			long epoch = System.currentTimeMillis();
+			Student firstStudent = null;
 			
-			Student student = new Student("Fname-" + epoch, "Lname" + epoch, "contact." + epoch + "@gmail.com");
-			
-			session.beginTransaction();
-			
-			session.save(student);
-			
-			System.out.println("New student saved!");
-			
-			
-			// Retrieve
-			Student fromDb = session.get(Student.class, student.getId());
-			
-			System.out.println("From db=" + fromDb.getFirstName() + " " + fromDb.getLastName());
-			
-			
-			// Query
-			List<Student> allStudents = session.createQuery("from Student", Student.class)
-					.getResultList();
-			for (int i = 0; i < allStudents.size(); i++) {
-				Student iStudent = allStudents.get(i);
-				System.out.println("index at " + i + " id=" + iStudent.getId());
+			for (int i = 0; i < 2; i++) {
+				session = sessionFactory.getCurrentSession();
+
+				long epoch = System.currentTimeMillis();
+				Student student = new Student("Fname-" + epoch, "Lname" + epoch, "contact." + epoch + "@gmail.com");
+
+				session.beginTransaction();
+				
+				session.save(student);
+				
+				if (firstStudent == null) {
+					firstStudent = student;
+				}
+				
+				session.getTransaction().commit();
 			}
 			
+			session = sessionFactory.getCurrentSession();
+
+			session.beginTransaction();
 			
-			// Update
-			fromDb.setEmail(fromDb.getEmail() + ".ph");
-			session.update(fromDb);
-			System.out.println("Email is appended with .ph!");
-			
+			// Delete last inserted Student
+			session.delete(firstStudent);
 			
 			session.getTransaction().commit();
 			
+		} catch (Exception ex) {
+			ex.printStackTrace();
 		} finally {
 			sessionFactory.close();
 		}
