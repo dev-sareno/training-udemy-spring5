@@ -1,5 +1,7 @@
 package com.luv2code.hb.onetoone;
 
+import java.util.List;
+
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
@@ -18,18 +20,28 @@ public class Main {
 		
 		try {
 			session = sessionFactory.getCurrentSession();
-
-			Instructor tmpInstructor = new Instructor("InsJohn", "InsDoe", "insjdoe@example.com");
-			InstructorDetail tmpInstructorDetail = new InstructorDetail("www.youtube.com/hb", "coding java");
-			tmpInstructor.setInstructorDetail(tmpInstructorDetail);
-
+			
 			session.beginTransaction();
 			
-			session.save(tmpInstructor);
+			List<InstructorDetail> resultList = session.createQuery("from InstructorDetail", InstructorDetail.class)
+					.getResultList();
 			
 			session.getTransaction().commit();
 			
-			System.out.println("Instructor saved!");
+			if (!resultList.isEmpty()) {
+				InstructorDetail instructorDetail = resultList.get(0);
+				System.out.println("Got an instructor detail. id=" + instructorDetail.getId());
+
+				session = sessionFactory.getCurrentSession();
+				
+				session.beginTransaction();
+				
+				session.delete(instructorDetail);
+				
+				session.getTransaction().commit();
+				
+				System.out.println("Successfully deleted an instructor detail. id=" + instructorDetail.getId());
+			}
 			
 		} catch (Exception ex) {
 			ex.printStackTrace();
