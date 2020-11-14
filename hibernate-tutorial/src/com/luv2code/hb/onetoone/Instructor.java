@@ -1,4 +1,4 @@
-package com.luv2code.hb.onetoone.schema;
+package com.luv2code.hb.onetoone;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
