@@ -44,6 +44,13 @@ public class Main {
 				System.out.println("index at " + i + " id=" + iStudent.getId());
 			}
 			
+			
+			// Update
+			fromDb.setEmail(fromDb.getEmail() + ".ph");
+			session.update(fromDb);
+			System.out.println("Email is appended with .ph!");
+			
+			
 			session.getTransaction().commit();
 			
 		} finally {
