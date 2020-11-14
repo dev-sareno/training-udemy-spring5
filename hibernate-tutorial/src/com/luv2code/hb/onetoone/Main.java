@@ -19,6 +19,28 @@ public class Main {
 		Session session;
 		
 		try {
+
+			/*
+			// Create 3 Instructor and Instructor detail
+			for (int i = 0; i < 3; i++) {
+				session = sessionFactory.getCurrentSession();
+				
+				long epoch = System.currentTimeMillis();
+				Instructor tmpInstructor = new Instructor("John." + epoch, "Doe." + epoch, "jdoe" + epoch + "@example.com");
+				InstructorDetail tmpInstructorDetail = new InstructorDetail("www.youtube.com/" + epoch, "coding java " + epoch);
+				tmpInstructor.setInstructorDetail(tmpInstructorDetail);
+
+				session.beginTransaction();
+				
+				session.save(tmpInstructor);
+				
+				session.getTransaction().commit();
+				
+				System.out.println("Instructor saved!");
+			}
+			 */
+			
+			
 			session = sessionFactory.getCurrentSession();
 			
 			session.beginTransaction();
