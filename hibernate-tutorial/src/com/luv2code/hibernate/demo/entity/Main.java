@@ -25,9 +25,13 @@ public class Main {
 			
 			session.save(student);
 			
-			session.getTransaction().commit();
-			
 			System.out.println("New student saved!");
+			
+			Student fromDb = session.get(Student.class, student.getId());
+			
+			System.out.println("From db=" + fromDb.getFirstName() + " " + fromDb.getLastName());
+			
+			session.getTransaction().commit();
 			
 		} finally {
 			sessionFactory.close();
