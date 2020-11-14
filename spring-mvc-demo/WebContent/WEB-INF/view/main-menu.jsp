@@ -11,7 +11,7 @@
 		
 		<hr/>
 		
-		<a href="showForm">Show form</a>
+		<a href="hw/showForm">Show form</a>
 		
 		<hr/>
 		
